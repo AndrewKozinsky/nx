@@ -1,0 +1,26 @@
+{
+	"name": "my-lib",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "packages/my-lib/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/packages/my-lib",
+				"main": "packages/my-lib/src/index.ts",
+				"tsConfig": "packages/my-lib/tsconfig.lib.json",
+				"assets": ["packages/my-lib/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["packages/my-lib/**/*.ts"]
+			}
+		}
+	},
+	"tags": []
+}
